@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-to-rds
+  labels:
+    app: app-python
+spec:
+  #k get replicas: 3
+  selector:
+    matchLabels:
+      app: app-python
+  template:
+    metadata:
+      labels:
+        app: app-python
+    spec:
+      containers:
+      - name: python-pipeline
+        image: crisosilva88/api-to-rds:latest
+        env:
+        - name: RDS_HOST
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: rds_host
+        - name: RDS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: rds_username
+        - name: RDS_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: rds_password
+      restartPolicy: OnFailure
+    
+
+
