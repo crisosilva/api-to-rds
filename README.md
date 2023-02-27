@@ -25,6 +25,9 @@ As bibliotecas python necessárias são instaladas previamente na imagem Docker.
   Durante a construção do projeto foi encontrado, problemas realacionados à autenticação no banco de dados AWS RDS, o erro foi solucionado usando secrets do Kubernetes um  arquivo Yaml utilizado para carregar as secrets no Kubernetes esta na pasta k8s assim como os demais scripts. 
 
   Obs: O arquivo auto.sh contém um comando para fazer o apply do secret.yaml, paar isso basta descomentar a linha
+  
+### Observações:
+- O projeto tem intuito de demonstração não sendo um padrão de arquitetura, a arquitetura utilizada dependerá de uma série de fatores, como o levantamento prévio dos requisitos, os recursos disponíveis, o nível de complexidade, a experiência da equipe entre outros. Por isso sempre análise seu use case.
 
 ### :black_nib: Autores
 cronstruído por Cristiano Oliveira
